@@ -1,0 +1,19 @@
+﻿{
+    "item-tongs-copper": "Copper tongs",
+	"item-tongs-tinbronze": "Tin bronze tongs",
+	"item-tongs-bismuthbronze": "Bismith bronze tongs",
+	"item-tongs-blackbronze": "Black bronze tongs",
+	"item-tongs-iron": "Iron tongs",
+	"item-tongs-meteoriciron": "Meteoric iron tongs",
+	"item-tongs-steel": "Steel tongs",
+    "itemdesc-tongs-*": "Hold these in your off hand, in order to handle red-hot metal and the like.",
+	
+	"item-tongarm-copper": "Copper tong arm",
+	"item-tongarm-tinbronze": "Tin bronze tong arm",
+	"item-tongarm-bismuthbronze": "Bismith bronze tong arm",
+	"item-tongarm-blackbronze": "Black bronze tong arm",
+	"item-tongarm-iron": "Iron tong arm",
+	"item-tongarm-meteoriciron": "Meteoric iron tong arm",
+	"item-tongarm-steel": "Steel tong arm",
+	"itemdesc-tongarm-*": "Combine two of these with a set of nails and strips to create metal tongs.",
+}

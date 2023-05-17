@@ -1,0 +1,10 @@
+{
+	ingredientPattern: "TNT",
+	ingredients: {
+		"T": { type: "item", code: "metaltongs:tongarm-*", name: "material"  },
+		"N": { type: "item", code: "game:metalnailsandstrips-*", name: "material" }
+	},
+	width: 3,
+	height: 1,
+	output: { type: "item", code: "metaltongs:tongs-{material}", quantity: 1  }
+}
