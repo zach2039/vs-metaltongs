@@ -86,6 +86,15 @@
 			"base":"game:block/metal/ingot/{metal}"
 		}
 	},
+	"durabilitybytype": {
+		"*-copper": 250,
+		"*-blackbronze": 600,
+		"*-bismuthbronze": 500,
+		"*-tinbronze": 400,
+		"*-iron": 900,
+		"*-meteoriciron": 1200,
+		"*-steel": 1800
+	},
 	"creativeinventory":{
 		"general":[
 			"*"
