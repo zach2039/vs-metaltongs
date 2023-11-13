@@ -1,10 +1,42 @@
 {
-	ingredientPattern: "TNT",
-	ingredients: {
-		"T": { type: "item", code: "metaltongs:tongarm-*", name: "material"  },
-		"N": { type: "item", code: "game:metalnailsandstrips-*", name: "material" }
+	"ingredientPattern":"TNT",
+	"ingredients":{
+		"T":{
+			"type":"item",
+			"code":"metaltongs:tongarm-*",
+			"name":"material",
+			"allowedVariants":[
+				"copper",
+				"tinbronze",
+				"bismuthbronze",
+				"blackbronze",
+				"silver",
+				"iron",
+				"meteoriciron",
+				"steel"
+			]
+		},
+		"N":{
+			"type":"item",
+			"code":"game:metalnailsandstrips-*",
+			"name":"material",
+			"allowedVariants":[
+				"copper",
+				"tinbronze",
+				"bismuthbronze",
+				"blackbronze",
+				"silver",
+				"iron",
+				"meteoriciron",
+				"steel"
+			]
+		}
 	},
-	width: 3,
-	height: 1,
-	output: { type: "item", code: "metaltongs:tongs-{material}", quantity: 1  }
+	"width":3,
+	"height":1,
+	"output":{
+		"type":"item",
+		"code":"metaltongs:tongs-{material}",
+		"quantity":1
+	}
 }

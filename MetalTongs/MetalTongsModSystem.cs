@@ -12,7 +12,7 @@ using metaltongs.network;
 
 namespace metaltongs
 {
-    class MetalTongsCore : ModSystem
+    class MetalTongsModSystem : ModSystem
     {
         private IServerNetworkChannel serverChannel;
         private ICoreAPI api;
@@ -47,7 +47,7 @@ namespace metaltongs
             base.Start(api);
 
             var harmony = new Harmony("metaltongs");
-			harmony.PatchAll(Assembly.GetExecutingAssembly());
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
 
 			api.Logger.Notification("Metal Tongs patched game classes");
 

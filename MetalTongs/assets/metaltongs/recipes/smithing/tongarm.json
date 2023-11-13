@@ -1,13 +1,33 @@
 {
-	ingredient: { type: "item", code: "game:ingot-*", name: "metal", allowedVariants: ["copper", "tinbronze", "bismuthbronze", "blackbronze", "silver", "iron", "meteoriciron", "steel"] },
-	pattern: [[
-		"________###____",
-		"_#######___###_",
-		"_______________",
-		"________###____",
-		"_#######___###_",
-		"_______________",
-	]],
-	name: "2 Tong arms",
-	output: { type: "item", code: "metaltongs:tongarm-{metal}", stacksize: 2  }
+	"ingredient":{
+		"type":"item",
+		"code":"game:ingot-*",
+		"name":"metal",
+		"allowedVariants":[
+			"copper",
+			"tinbronze",
+			"bismuthbronze",
+			"blackbronze",
+			"silver",
+			"iron",
+			"meteoriciron",
+			"steel"
+		]
+	},
+	"pattern":[
+		[
+			"________###____",
+			"_#######___###_",
+			"_______________",
+			"________###____",
+			"_#######___###_",
+			"_______________"
+		]
+	],
+	"name":"2 Tong arms",
+	"output":{
+		"type":"item",
+		"code":"metaltongs:tongarm-{metal}",
+		"stacksize":2
+	}
 }

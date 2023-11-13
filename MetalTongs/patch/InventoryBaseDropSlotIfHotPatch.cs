@@ -14,7 +14,7 @@ using Vintagestory.GameContent;
 
 namespace metaltongs.patch
 {
-    [HarmonyPatch(typeof(InventoryBase), "DropSlotIfHot")]
+	[HarmonyPatch(typeof(InventoryBase), "DropSlotIfHot")]
 	class InventoryBaseDropSlotIfHotPatch
 	{
         private static ItemStack GetHeatResistantHandGear(IPlayer player)
@@ -42,7 +42,14 @@ namespace metaltongs.patch
 			return (isHeatResistant.GetValueOrDefault()) ? itemstack : null;
 		}
 
-        private static void TryDamageTongsInUse(InventoryBase inventory, ItemSlot slot, IPlayer player)
+		private static bool IsWorkingWithHotItem(InventoryBase inventory, ItemSlot hotItemSlot)
+		{
+			JsonObject attributes = hotItemSlot.Itemstack.Collectible.Attributes;
+
+			return (attributes == null || !attributes.IsTrue("allowHotCrafting")) && hotItemSlot.Itemstack.Collectible.GetTemperature(inventory.Api.World, hotItemSlot.Itemstack) > 300f;
+		}
+
+        private static void TryDamageTongsInUse(InventoryBase inventory, ItemSlot slot, IPlayer player = null)
         {
             if (inventory.Api.Side == EnumAppSide.Client)
 			{
@@ -60,17 +67,24 @@ namespace metaltongs.patch
             if (MetalTongsConfig.Loaded.TongsUsageConsumesDurability)
             {
                 // Try to find tongs and damage them if we are configured to do so
-                ItemStack tongsItem = GetHeatResistantHandGear(player); 
+                ItemStack tongsItemStack = GetHeatResistantHandGear(player); 
                 
-                if (tongsItem == null)
+                if (tongsItemStack == null)
                 {
                     return;
                 }
-                
+
+				// We need to damage only when working with hot items
+				if (IsWorkingWithHotItem(inventory, slot))
+				{
+					ItemSlot leftHandItemSlot = player.Entity.LeftHandItemSlot; // FIXME: This should be passed by ref from GetHeatREsistantHandGear
+					tongsItemStack.Collectible.DamageItem(player.Entity.World, player.Entity, leftHandItemSlot, 1);   
+				}
+			 	
             }
         }
 
-        [HarmonyPostfix]
+		[HarmonyPostfix]
 		static void Postfix(InventoryBase __instance, ItemSlot slot, IPlayer player)
 		{
 			TryDamageTongsInUse(__instance, slot, player);
