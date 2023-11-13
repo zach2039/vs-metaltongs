@@ -4,6 +4,6 @@
         "op": "add",
         "path": "/durability",
         "value": 125,
-        "file": "survival:itemtypes/tool/tongs"
+        "file": "game:itemtypes/tool/tongs"
     }
 ]

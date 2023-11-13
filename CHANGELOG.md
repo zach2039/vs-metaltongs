@@ -3,6 +3,8 @@
 * Migrate to net7
 * Update to 1.18.15
 * Add mod config and sync packets
+* Add durability usage to all tongs
+* Patch vanilla tongs to have durability of 125
 
 ### v1.0.1
 
