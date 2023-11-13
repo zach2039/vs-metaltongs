@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
+using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.Client;
 using Vintagestory.API.Server;
@@ -43,6 +45,11 @@ namespace metaltongs
         {
             this.api = api;
             base.Start(api);
+
+            var harmony = new Harmony("metaltongs");
+			harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+			api.Logger.Notification("Metal Tongs patched game classes");
 
             api.Logger.Notification("Loaded Metal Tongs!");
         }
