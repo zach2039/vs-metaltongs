@@ -1,3 +1,9 @@
+### v1.1.1
+
+* Fix durability consumption on tongs; moved to event system from patch
+* Fix compat with No Heat Resistant Inventory
+* Up all metal tongs durability by 100
+
 ### v1.1.0
 
 * Migrate to net7
