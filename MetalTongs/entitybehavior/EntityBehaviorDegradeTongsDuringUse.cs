@@ -10,13 +10,25 @@ namespace metaltongs.entitybehavior
     /// </summary>
     public class EntityBehaviorDegradeTongsDuringUse : EntityBehavior
     {
+	
         public EntityBehaviorDegradeTongsDuringUse(Entity entity) : base(entity) {}
 
-        public override string PropertyName() => "degradetongsduringuse";
+        public override void Initialize(EntityProperties properties, JsonObject attributes)
+        {
+            base.Initialize(properties, attributes);
+
+			this.tickAccum = (float)(this.entity.World.Rand.NextDouble() * 0.33);
+        }
 
         public override void OnGameTick(float deltaTime)
         {
             base.OnGameTick(deltaTime);
+
+			if ((this.tickAccum += deltaTime) < 0.33f)
+			{
+				return;
+			}
+			this.tickAccum = 0f;
 
             if (entity is EntityPlayer entityPlayer)
             {
@@ -97,5 +109,9 @@ namespace metaltongs.entitybehavior
 			 	
             }
         }
+
+		public override string PropertyName() => "degradetongsduringuse";
+
+		private float tickAccum;
     }
 }
