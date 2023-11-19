@@ -87,13 +87,13 @@
 		}
 	},
 	"durabilitybytype": {
-		"*-copper": 250,
-		"*-blackbronze": 600,
-		"*-bismuthbronze": 500,
-		"*-tinbronze": 400,
-		"*-iron": 900,
-		"*-meteoriciron": 1200,
-		"*-steel": 1800
+		"*-copper": 350,
+		"*-blackbronze": 700,
+		"*-bismuthbronze": 600,
+		"*-tinbronze": 500,
+		"*-iron": 1000,
+		"*-meteoriciron": 1300,
+		"*-steel": 1900
 	},
 	"creativeinventory":{
 		"general":[

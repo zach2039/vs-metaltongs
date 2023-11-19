@@ -110,9 +110,9 @@ namespace metaltongs.entitybehavior
 				tongsItemStack.Collectible.DamageItem(player.Entity.World, player.Entity, tongsSlot, 1);  
 
 				// If tongs broke, we need to force drop the item
-				if (tongsItemStack == null)
+				if (tongsItemStack.Collectible.GetRemainingDurability(tongsItemStack) <= 0)
 				{
-					inventory.DropSlotIfHot(slot, player);
+					inventory.DropSlotIfHot(slot, player) ;
 				}
 			}
 			 	
