@@ -48,7 +48,7 @@ namespace metaltongs
             this.api = api;
             base.Start(api);
 
-            api.RegisterEntityBehaviorClass("MetalTongs_EntityBehaviorDegradeTongsOnUse", typeof(EntityBehaviorDegradeTongsDuringUse));
+            api.RegisterEntityBehaviorClass("EntityBehaviorDegradeTongsDuringUse", typeof(EntityBehaviorDegradeTongsDuringUse));
             api.Event.OnEntitySpawn += AddEntityBehaviors;
 
             api.Logger.Notification("Loaded Metal Tongs!");
