@@ -1,22 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using HarmonyLib;
 using Vintagestory.API.Common;
-using Vintagestory.API.Config;
-using Vintagestory.API.MathTools;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
-using Vintagestory.GameContent;
 
-namespace metaltongs.patch
+namespace metaltongs.entitybehavior
 {
-	[HarmonyPatch(typeof(InventoryBase), "DropSlotIfHot")]
-	class InventoryBaseDropSlotIfHotPatch
-	{
+    /// <summary>
+    /// Credits to DanaCraluminum and NoHeatResistantInventory for use of entity behavior to handle hot items;
+    /// we will do similar here to handle tong damage on use
+    /// </summary>
+    public class EntityBehaviorDegradeTongsDuringUse : EntityBehavior
+    {
+        public EntityBehaviorDegradeTongsDuringUse(Entity entity) : base(entity) {}
+
+        public override string PropertyName() => "degradetongsduringuse";
+
+        public override void OnGameTick(float deltaTime)
+        {
+            base.OnGameTick(deltaTime);
+
+            if (entity is EntityPlayer entityPlayer)
+            {
+				IPlayer player = entityPlayer.Player;
+
+				// Uhh
+				if (player.InventoryManager.GetHotbarInventory() is InventoryBase invBase)
+				{
+					ItemSlot slotOfItemHeldWithTongs = entityPlayer.RightHandItemSlot;
+					TryDamageTongsInUse(invBase, slotOfItemHeldWithTongs, player);
+				}
+            }
+        }
+
         private static ItemStack GetHeatResistantHandGear(IPlayer player)
 		{
 			if (player == null)
@@ -37,9 +51,9 @@ namespace metaltongs.patch
 			else
 			{
 				JsonObject attributes = itemstack.Collectible.Attributes;
-				isHeatResistant = ((attributes != null) ? new bool?(attributes.IsTrue("heatResistant")) : null);
+				isHeatResistant = (attributes != null) ? new bool?(attributes.IsTrue("heatResistant")) : null;
 			}
-			return (isHeatResistant.GetValueOrDefault()) ? itemstack : null;
+			return isHeatResistant.GetValueOrDefault() ? itemstack : null;
 		}
 
 		private static bool IsWorkingWithHotItem(InventoryBase inventory, ItemSlot hotItemSlot)
@@ -67,6 +81,7 @@ namespace metaltongs.patch
             if (MetalTongsConfig.Loaded.TongsUsageConsumesDurability)
             {
                 // Try to find tongs and damage them if we are configured to do so
+				ItemSlot tongsSlot = player.Entity.LeftHandItemSlot; // FIXME: This should be passed by ref from GetHeatREsistantHandGear 
                 ItemStack tongsItemStack = GetHeatResistantHandGear(player); 
                 
                 if (tongsItemStack == null)
@@ -77,19 +92,10 @@ namespace metaltongs.patch
 				// We need to damage only when working with hot items
 				if (IsWorkingWithHotItem(inventory, slot))
 				{
-					ItemSlot leftHandItemSlot = player.Entity.LeftHandItemSlot; // FIXME: This should be passed by ref from GetHeatREsistantHandGear
-					tongsItemStack.Collectible.DamageItem(player.Entity.World, player.Entity, leftHandItemSlot, 1);   
+					tongsItemStack.Collectible.DamageItem(player.Entity.World, player.Entity, tongsSlot, 1);   
 				}
 			 	
             }
         }
-
-		[HarmonyPostfix]
-		static void Postfix(InventoryBase __instance, ItemSlot slot, IPlayer player)
-		{
-			TryDamageTongsInUse(__instance, slot, player);
-		}
-	}
+    }
 }
-
-    

@@ -9,6 +9,8 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Client;
 using Vintagestory.API.Server;
 using metaltongs.network;
+using metaltongs.entitybehavior;
+using Vintagestory.API.Common.Entities;
 
 namespace metaltongs
 {
@@ -46,10 +48,8 @@ namespace metaltongs
             this.api = api;
             base.Start(api);
 
-            var harmony = new Harmony("metaltongs");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
-
-			api.Logger.Notification("Metal Tongs patched game classes");
+            api.RegisterEntityBehaviorClass("MetalTongs_EntityBehaviorDegradeTongsOnUse", typeof(EntityBehaviorDegradeTongsDuringUse));
+            api.Event.OnEntitySpawn += AddEntityBehaviors;
 
             api.Logger.Notification("Loaded Metal Tongs!");
         }
@@ -90,6 +90,11 @@ namespace metaltongs
             {
                 sapi.Event.PlayerJoin -= this.OnPlayerJoin;
             }
+        }
+
+        private void AddEntityBehaviors(Entity entity)
+        {
+            if (entity is EntityPlayer) entity.AddBehavior(new EntityBehaviorDegradeTongsDuringUse(entity));
         }
     }
 }
