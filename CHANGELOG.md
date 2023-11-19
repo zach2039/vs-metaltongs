@@ -1,3 +1,7 @@
+### v1.1.2
+
+* Fix crash on multiplayer server on other player joining
+
 ### v1.1.1
 
 * Fix durability consumption on tongs; moved to event system from patch

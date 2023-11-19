@@ -34,15 +34,24 @@ namespace metaltongs.entitybehavior
 			}
 			this.tickAccum = 0f;
 
-            if (entity is EntityPlayer entityPlayer)
+			// Uhh
+            if (entity != null && entity is EntityPlayer entityPlayer)
             {
 				IPlayer player = entityPlayer.Player;
 
-				// Uhh
-				if (player.InventoryManager.GetHotbarInventory() is InventoryBase invBase)
+				if (player != null)
 				{
-					ItemSlot slotOfItemHeldWithTongs = entityPlayer.RightHandItemSlot;
-					TryDamageTongsInUse(invBase, slotOfItemHeldWithTongs, player);
+					IPlayerInventoryManager invManger = player.InventoryManager;
+					if (invManger != null)
+					{
+						IInventory invHotbar = invManger.GetHotbarInventory();
+
+						if (invHotbar != null && invHotbar is InventoryBase invBase)
+						{
+							ItemSlot slotOfItemHeldWithTongs = entityPlayer.RightHandItemSlot;
+							TryDamageTongsInUse(invBase, slotOfItemHeldWithTongs, player);
+						}
+					}
 				}
             }
         }
