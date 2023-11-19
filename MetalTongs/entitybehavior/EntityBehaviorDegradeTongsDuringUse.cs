@@ -17,14 +17,18 @@ namespace metaltongs.entitybehavior
         {
             base.Initialize(properties, attributes);
 
-			this.tickAccum = (float)(this.entity.World.Rand.NextDouble() * 0.33);
+			this.tickAccum = (float)(this.entity.World.Rand.NextDouble() * 0.50);
         }
 
         public override void OnGameTick(float deltaTime)
         {
             base.OnGameTick(deltaTime);
 
-			if ((this.tickAccum += deltaTime) < 0.33f)
+			// Exit early if we arn't damaging tongs
+			if (!MetalTongsConfig.Loaded.TongsUsageConsumesDurability)
+				return;
+
+			if ((this.tickAccum += deltaTime) < 0.50f)
 			{
 				return;
 			}
@@ -90,24 +94,28 @@ namespace metaltongs.entitybehavior
 				return;
 			}
 
-            if (MetalTongsConfig.Loaded.TongsUsageConsumesDurability)
-            {
-                // Try to find tongs and damage them if we are configured to do so
-				ItemSlot tongsSlot = player.Entity.LeftHandItemSlot; // FIXME: This should be passed by ref from GetHeatREsistantHandGear 
-                ItemStack tongsItemStack = GetHeatResistantHandGear(player); 
-                
-                if (tongsItemStack == null)
-                {
-                    return;
-                }
 
-				// We need to damage only when working with hot items
-				if (IsWorkingWithHotItem(inventory, slot))
+			// Try to find tongs and damage them if we are configured to do so
+			ItemSlot tongsSlot = player.Entity.LeftHandItemSlot; // FIXME: This should be passed by ref from GetHeatREsistantHandGear 
+			ItemStack tongsItemStack = GetHeatResistantHandGear(player); 
+			
+			if (tongsItemStack == null)
+			{
+				return;
+			}
+
+			// We need to damage only when working with hot items
+			if (IsWorkingWithHotItem(inventory, slot))
+			{
+				tongsItemStack.Collectible.DamageItem(player.Entity.World, player.Entity, tongsSlot, 1);  
+
+				// If tongs broke, we need to force drop the item
+				if (tongsItemStack == null)
 				{
-					tongsItemStack.Collectible.DamageItem(player.Entity.World, player.Entity, tongsSlot, 1);   
+					inventory.DropSlotIfHot(slot, player);
 				}
+			}
 			 	
-            }
         }
 
 		public override string PropertyName() => "degradetongsduringuse";
