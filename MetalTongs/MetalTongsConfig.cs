@@ -11,5 +11,6 @@ namespace metaltongs
         public static MetalTongsConfig Loaded { get; set; } = new MetalTongsConfig();
 
         public bool TongsUsageConsumesDurability { get; set; } = true;
+        public float TimeBetweenDurabilityConsumedSeconds { get; set; } = 3.0f;
     }
 }

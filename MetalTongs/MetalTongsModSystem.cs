@@ -59,7 +59,8 @@ namespace metaltongs
             // Send connecting players config settings
             this.serverChannel.SendPacket(
                 new SyncConfigClientPacket {
-                    TongsUsageConsumesDurability = MetalTongsConfig.Loaded.TongsUsageConsumesDurability
+                    TongsUsageConsumesDurability = MetalTongsConfig.Loaded.TongsUsageConsumesDurability,
+                    TimeBetweenDurabilityConsumedSeconds = MetalTongsConfig.Loaded.TimeBetweenDurabilityConsumedSeconds
                 }, player);
         }
 
@@ -81,6 +82,7 @@ namespace metaltongs
                 .SetMessageHandler<SyncConfigClientPacket>(p => {
                     this.Mod.Logger.Event("Received config settings from server");
                     MetalTongsConfig.Loaded.TongsUsageConsumesDurability = p.TongsUsageConsumesDurability;
+                    MetalTongsConfig.Loaded.TimeBetweenDurabilityConsumedSeconds = p.TimeBetweenDurabilityConsumedSeconds;
                 });
         }
         

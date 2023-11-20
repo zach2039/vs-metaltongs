@@ -1,3 +1,7 @@
+### v1.1.3
+
+* Add config option `TimeBetweenDurabilityConsumedSeconds` to control durability use; defaults to 3.0 seconds
+
 ### v1.1.2
 
 * Fix crash on multiplayer server on other player joining

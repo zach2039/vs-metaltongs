@@ -6,5 +6,6 @@ namespace metaltongs.network
     public class SyncConfigClientPacket
     {
         public bool TongsUsageConsumesDurability;
+        public float TimeBetweenDurabilityConsumedSeconds;
     }
 }

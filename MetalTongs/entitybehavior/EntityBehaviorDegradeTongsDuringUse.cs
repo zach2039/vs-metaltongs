@@ -1,3 +1,4 @@
+using System;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
@@ -17,7 +18,9 @@ namespace metaltongs.entitybehavior
         {
             base.Initialize(properties, attributes);
 
-			this.tickAccum = (float)(this.entity.World.Rand.NextDouble() * 0.50);
+			float secondsPerUse = Math.Max(0.1f, MetalTongsConfig.Loaded.TimeBetweenDurabilityConsumedSeconds);
+
+			this.tickAccum = (float)(this.entity.World.Rand.NextDouble() * secondsPerUse);
         }
 
         public override void OnGameTick(float deltaTime)
@@ -28,7 +31,9 @@ namespace metaltongs.entitybehavior
 			if (!MetalTongsConfig.Loaded.TongsUsageConsumesDurability)
 				return;
 
-			if ((this.tickAccum += deltaTime) < 0.50f)
+			float secondsPerUse = Math.Max(0.1f, MetalTongsConfig.Loaded.TimeBetweenDurabilityConsumedSeconds);
+
+			if ((this.tickAccum += deltaTime) < secondsPerUse)
 			{
 				return;
 			}

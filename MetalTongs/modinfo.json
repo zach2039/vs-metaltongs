@@ -4,7 +4,7 @@
   "name": "Metal Tongs",
   "authors": ["Zach2039"],
   "description": "Adds metal tongs to the game which function exactly the same as wooden tongs; increase cool factor of your forge area.",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "dependencies": {
     "game": "1.18.15"
   }
