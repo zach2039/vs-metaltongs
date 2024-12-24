@@ -1,40 +1,40 @@
 {
-	"ingredientPattern":"TNT",
-	"ingredients":{
-		"T":{
-			"type":"item",
-			"code":"metaltongs:tongarm-*",
-			"name":"material",
-			"allowedVariants":[
-				"copper",
-				"tinbronze",
-				"bismuthbronze",
-				"blackbronze",
-				"iron",
-				"meteoriciron",
-				"steel"
-			]
-		},
-		"N":{
-			"type":"item",
-			"code":"game:metalnailsandstrips-*",
-			"name":"material",
-			"allowedVariants":[
-				"copper",
-				"tinbronze",
-				"bismuthbronze",
-				"blackbronze",
-				"iron",
-				"meteoriciron",
-				"steel"
-			]
-		}
-	},
-	"width":3,
-	"height":1,
-	"output":{
-		"type":"item",
-		"code":"metaltongs:tongs-{material}",
-		"quantity":1
-	}
+  "ingredientPattern": "TNT",
+  "ingredients": {
+    "T": {
+      "type": "item",
+      "code": "metaltongs:tongarm-*",
+      "name": "material",
+      "allowedVariants": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
+    },
+    "N": {
+      "type": "item",
+      "code": "game:metalnailsandstrips-*",
+      "name": "material",
+      "allowedVariants": [
+        "copper",
+        "tinbronze",
+        "bismuthbronze",
+        "blackbronze",
+        "iron",
+        "meteoriciron",
+        "steel"
+      ]
+    }
+  },
+  "width": 3,
+  "height": 1,
+  "output": {
+    "type": "item",
+    "code": "metaltongs:tongs-{material}",
+    "quantity": 1
+  }
 }

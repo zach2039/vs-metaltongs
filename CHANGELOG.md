@@ -1,3 +1,9 @@
+### v1.2.0
+
+* Update model
+* Update transforms
+* Reduce wooden tongs durability by 50
+
 ### v1.1.3
 
 * Add config option `TimeBetweenDurabilityConsumedSeconds` to control durability use; defaults to 3.0 seconds
