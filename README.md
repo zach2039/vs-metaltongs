@@ -24,7 +24,7 @@ Config Settings (`VintageStoryData/ModConfig/MetalTongs.json`)
 Known issues
 --------
 
-- There are slight placement issues with ingots and plates with these modded tongs. These will not be adjusted to prevent issues with vanilla tongs for the time being.
+- There are slight placement issues with ingots and plates with these modded tongs. These will not be adjusted to prevent breaking vanilla tongs for the time being.
 
 
 Notable mods that add similar
