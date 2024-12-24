@@ -34,3 +34,5 @@ Notable mods that add similar
   - Another nice alternative to wooden tongs made by Arahvin.
 - [Damaged Tongs](https://mods.vintagestory.at/damagedtongs)
   - The damagable tong portion of this mod, without the additional items.
+- [Sergs' Metal Tongs](https://mods.vintagestory.at/show/mod/16743)
+  - Alternative metal tongs made by Sergs.
