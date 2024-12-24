@@ -30,5 +30,7 @@ Known issues
 Notable mods that add similar
 --------
 
- - [Blacksmith's Gloves](https://mods.vintagestory.at/show/mod/6581)
-    - Another nice alternative to wooden tongs made by Arahvin.
+- [Blacksmith's Gloves](https://mods.vintagestory.at/show/mod/6581)
+  - Another nice alternative to wooden tongs made by Arahvin.
+- [Damaged Tongs](https://mods.vintagestory.at/damagedtongs)
+  - The damagable tong portion of this mod, without the additional items.
