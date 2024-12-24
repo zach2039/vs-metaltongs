@@ -1,3 +1,7 @@
+### v1.2.1
+
+* Fix issue when holding ingots and plates
+
 ### v1.2.0
 
 * Update models

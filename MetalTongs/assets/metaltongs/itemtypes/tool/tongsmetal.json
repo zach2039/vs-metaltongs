@@ -1,5 +1,6 @@
 {
 	"code": "tongs",
+	"class": "ItemTongs",
 	"behaviors": [
 		{
 			"name": "GroundStorable",
