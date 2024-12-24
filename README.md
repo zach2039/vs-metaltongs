@@ -3,6 +3,7 @@ Metal Tongs
 
 Overview
 --------
+
 Adds metal tongs to the game which function exactly the same as wooden tongs; increase cool factor of your forge area.
 
 Also makes all heat resistant gear consume durability on pickup, or on selecting the slot, of hot items.
@@ -11,13 +12,19 @@ Also makes all heat resistant gear consume durability on pickup, or on selecting
 Quick-start Guide
 --------
 
- - Create metal tong arms via smithing, and combine with the appropriate type of nails and strips to create metal tongs.
+- Create metal tong arms via smithing, and combine with the appropriate type of nails and strips to create metal tongs.
 
 
 Config Settings (`VintageStoryData/ModConfig/MetalTongs.json`)
 --------
 
- - `TongsUsageConsumesDurability`: Whether or not all heat resistant gear, vanilla and modded, consume durability on use; defaults to `true`.
+- `TongsUsageConsumesDurability`: Whether or not all heat resistant gear, vanilla and modded, consume durability on use; defaults to `true`.
+
+
+Known issues
+--------
+
+- There is a current translation issue with ingots and plates with these modded tongs. Crucibles seem to work fine.
 
 
 Notable mods that add similar
