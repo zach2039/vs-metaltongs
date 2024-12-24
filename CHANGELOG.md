@@ -1,8 +1,8 @@
 ### v1.2.0
 
-* Update model
+* Update models
 * Update transforms
-* Reduce wooden tongs durability by 50
+* Reduce wooden tongs durability from 125 to 100
 
 ### v1.1.3
 

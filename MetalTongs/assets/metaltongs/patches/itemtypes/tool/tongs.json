@@ -3,7 +3,7 @@
     "__comment": "Need to give wooden tongs a durability, or else they will break instance if metal tongs mod implements durability usage",
     "op": "add",
     "path": "/durability",
-    "value": 125,
+    "value": 100,
     "file": "game:itemtypes/tool/tongs"
   }
 ]
