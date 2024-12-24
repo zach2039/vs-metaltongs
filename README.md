@@ -24,7 +24,7 @@ Config Settings (`VintageStoryData/ModConfig/MetalTongs.json`)
 Known issues
 --------
 
-- There is a current translation issue with ingots and plates with these modded tongs. Crucibles seem to work fine.
+- There are slight placement issues with ingots and plates with these modded tongs. These will not be adjusted to prevent issues with vanilla tongs for the time being.
 
 
 Notable mods that add similar
