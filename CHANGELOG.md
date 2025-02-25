@@ -1,3 +1,8 @@
+### v1.2.2
+
+* Add Ukrainian translation (thanks to justOmi!)
+* Fix English translation typo
+
 ### v1.2.1
 
 * Fix issue when holding ingots and plates

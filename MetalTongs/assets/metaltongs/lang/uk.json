@@ -1,0 +1,18 @@
+﻿{
+    "item-tongs-copper": "Щипці з міді",
+    "item-tongs-tinbronze": "Щипці з олов'яної бронзи",
+    "item-tongs-bismuthbronze": "Щипці з бісмутової бронзи",
+    "item-tongs-blackbronze": "Щипці із чорної бронзи",
+    "item-tongs-iron": "Щипці із заліза",
+    "item-tongs-meteoriciron": "Щипці з метеоритного заліза",
+    "item-tongs-steel": "Щипці зі сталі",
+    "itemdesc-tongs-*": "Візьміть їх у ліву руку, щоб тримати розпечений метал тощо.",
+    "item-tongarm-copper": "Плече щипців із міді",
+    "item-tongarm-tinbronze": "Плече щипців з олов'яної бронзи",
+    "item-tongarm-bismuthbronze": "Плече щипців із бісмутової бронзи",
+    "item-tongarm-blackbronze": "Плече щипців із чорної бронзи",
+    "item-tongarm-iron": "Плече щипців із заліза",
+    "item-tongarm-meteoriciron": "Плече щипців із метеоритного заліза",
+    "item-tongarm-steel": "Плече щипців зі сталі",
+    "itemdesc-tongarm-*": "Поєднайте плечі з цвяхами й планками, щоб створити металеві щипці."
+}
