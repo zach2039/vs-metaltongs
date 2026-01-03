@@ -2,6 +2,7 @@
 
 * Fix item translations 
 * Target VS-1.21.6, net8
+* Fix texture asset warning in tong shapes from lack of game domain
 
 ### v1.2.3
 

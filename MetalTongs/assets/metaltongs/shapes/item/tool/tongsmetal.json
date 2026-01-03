@@ -9,7 +9,7 @@
 	"textureSizes": {
 	},
 	"textures": {
-		"metal": "block/metal/ingot/bismuthbronze"
+		"metal": "game:block/metal/ingot/bismuthbronze"
 	},
 	"elements": [
 		{
