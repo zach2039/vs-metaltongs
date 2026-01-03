@@ -2,9 +2,10 @@
   "type": "code",
   "modid": "metaltongs",
   "name": "Metal Tongs",
-  "authors": ["Zach2039"],
+  "authors": [ "Zach2039" ],
+  "contributors": [ "justOmni" ],
   "description": "Adds metal tongs to the game which function exactly the same as wooden tongs; increase cool factor of your forge area.",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "dependencies": {
     "game": "*"
   }

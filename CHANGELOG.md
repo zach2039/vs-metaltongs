@@ -1,3 +1,12 @@
+### v1.2.4
+
+* Fix item translations 
+* Target VS-1.21.6, net8
+
+### v1.2.3
+
+* Update Ukrainian translation (thanks again to justOmi!)
+
 ### v1.2.2
 
 * Add Ukrainian translation (thanks to justOmi!)
